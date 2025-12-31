@@ -55,7 +55,7 @@ const HeroSection = () => {
           />
         </a>
       </div>
-      <div className="join-overlay">
+      <div className="join-overlay" style={{ display: 'none' }}>
         <div className="join-header">
           <h2>Join Our Team!</h2>
         </div>
