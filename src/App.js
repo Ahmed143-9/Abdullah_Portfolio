@@ -7,6 +7,7 @@ import HeroSection from './components/HeroSection';
 import PlatformSection from './components/PlatformSection';
 import VoiceSection from './components/VoiceSection';
 import NewsSection from './components/NewsSection';
+import EventsSection from './components/EventsSection'; // নতুন যোগ করুন
 import ShopSection from './components/ShopSection';
 import JoinSection from './components/JoinSection';
 import DonationSection from './components/DonationSection';
@@ -64,6 +65,7 @@ function App() {
         <PlatformSection />
         <VoiceSection />
         <NewsSection />
+        <EventsSection /> {/* EventsSection যোগ করুন এখানে */}
         <div className="watch-more">
           <a href="#videos" className="btn">Watch More Videos</a>
         </div>

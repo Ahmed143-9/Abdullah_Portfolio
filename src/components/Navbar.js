@@ -64,7 +64,7 @@ const Navbar = () => {
             </div>
             <div className="logo-tagline"> AV TECH PERFORMANCE GREAT!</div>
           </div>
-          <div className="logo-year">2025</div>
+          <div className="logo-year">2026</div>
           <div className="logo-border-bottom"></div>
         </div>
         
