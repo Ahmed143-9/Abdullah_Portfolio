@@ -7,7 +7,8 @@ import HeroSection from './components/HeroSection';
 import PlatformSection from './components/PlatformSection';
 import VoiceSection from './components/VoiceSection';
 import NewsSection from './components/NewsSection';
-import EventsSection from './components/EventsSection'; // নতুন যোগ করুন
+import GallerySection from './components/GallerySection';
+import EventsSection from './components/EventsSection';
 import ShopSection from './components/ShopSection';
 import JoinSection from './components/JoinSection';
 import DonationSection from './components/DonationSection';
@@ -19,16 +20,20 @@ function App() {
   const [showContributePopup, setShowContributePopup] = useState(false);
   
   useEffect(() => {
+    // Check if popups have been shown in this session
+    const christmasShown = sessionStorage.getItem('christmasPopupShown');
+    const contributeShown = sessionStorage.getItem('contributePopupShown');
+    
     // Show Christmas popup after a delay
     const christmasTimer = setTimeout(() => {
-      if (!localStorage.getItem('christmasPopupShown')) {
+      if (!christmasShown) {
         setShowChristmasPopup(true);
       }
     }, 2000);
     
     // Show contribute popup after a delay
     const contributeTimer = setTimeout(() => {
-      if (!localStorage.getItem('contributePopupShown')) {
+      if (!contributeShown) {
         setShowContributePopup(true);
       }
     }, 5000);
@@ -41,12 +46,12 @@ function App() {
   
   const closeChristmasPopup = () => {
     setShowChristmasPopup(false);
-    localStorage.setItem('christmasPopupShown', 'true');
+    sessionStorage.setItem('christmasPopupShown', 'true');
   };
   
   const closeContributePopup = () => {
     setShowContributePopup(false);
-    localStorage.setItem('contributePopupShown', 'true');
+    sessionStorage.setItem('contributePopupShown', 'true');
   };
   
   return (
@@ -55,7 +60,7 @@ function App() {
       
       {/* Top Banner */}
       <div className="top-banner">
-        <p><strong>TEXT KAZI TO 88022!</strong></p>
+        <p><strong>TEXT KAZI TO +60 11-3981 8762</strong></p>
       </div>
       
       <Navbar />
@@ -65,15 +70,17 @@ function App() {
         <PlatformSection />
         <VoiceSection />
         <NewsSection />
-        <EventsSection /> {/* EventsSection যোগ করুন এখানে */}
+        <GallerySection />
+        <EventsSection />
         <div className="watch-more">
           <a href="#videos" className="btn">Watch More Videos</a>
         </div>
         <ShopSection />
         <DonationSection />
         <JoinSection />
-        <Footer />
       </main>
+      
+      <Footer />
       
       <Popup 
         id="popup-christmas" 

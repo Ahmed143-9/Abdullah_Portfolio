@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import './EventsSection.css';
 
+// Add these new styles to EventsSection.css
+// .featured-grid-no-images - grid without image constraints
+// .featured-event-card-no-image - card layout without images
+// .event-badge-top - category badge at top
+// .modal-header-no-image - modal header without image background
+
 const EventsSection = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'calendar'
+  const [viewMode, setViewMode] = useState('grid');
 
   const featuredEvents = [
     {
@@ -15,7 +21,6 @@ const EventsSection = () => {
       location: "New York Convention Center",
       description: "Join industry leaders for three days of innovation, networking, and cutting-edge technology demonstrations. This year's theme is 'The Future of Immersive Experiences' featuring keynote speeches, workshops, and exhibition halls.",
       speakers: ["Kazi Abdullah", "Sarah Johnson", "Michael Chen", "Dr. Emily Rodriguez"],
-      image: "g1.jpg",
       capacity: 1200,
       registered: 850,
       price: "$299-$899",
@@ -30,7 +35,6 @@ const EventsSection = () => {
       location: "Silicon Valley Auditorium",
       description: "Celebrate excellence in AV technology innovation. Black-tie optional event with dinner, awards ceremony, and after-party. Network with industry pioneers and see the latest groundbreaking technologies.",
       speakers: ["Mark Thompson", "Lisa Wang", "Robert Garcia"],
-      image: "g2.jpg",
       capacity: 500,
       registered: 420,
       price: "$199",
@@ -45,25 +49,70 @@ const EventsSection = () => {
       location: "Online & Boston Tech Hub",
       description: "Hands-on training session covering the latest audio processing technologies, room calibration techniques, and system optimization. Perfect for audio engineers and system integrators.",
       speakers: ["Audio Expert James Wilson", "Sound Engineer Maria Lopez"],
-      image: "g3.jpg",
       capacity: 100,
       registered: 95,
       price: "$149",
       category: "Workshop",
       tags: ["Training", "Hands-on", "Technical"]
+    },
+    {
+      id: 104,
+      title: "AV Integration Summit",
+      date: "2025-03-22",
+      endDate: "2025-03-24",
+      time: "8:00 AM - 5:00 PM",
+      location: "Chicago Marriott",
+      description: "Industry leaders discuss the future of AV integration in commercial and residential spaces. Three-day summit with panels, demonstrations, and networking opportunities.",
+      speakers: ["David Brown", "Jennifer Lee", "Tom Anderson"],
+      capacity: 800,
+      registered: 650,
+      price: "$399",
+      category: "Summit",
+      tags: ["Integration", "Business", "Technology"]
+    },
+    {
+      id: 105,
+      title: "Digital Signage Expo",
+      date: "2025-09-12",
+      endDate: "2025-09-14",
+      time: "9:00 AM - 6:00 PM",
+      location: "Orlando Convention Center",
+      description: "Explore the latest in digital signage technology and creative content solutions. Exhibition featuring 300+ vendors and live demonstrations.",
+      speakers: ["Alex Martinez", "Sophia Chen", "James Wilson"],
+      capacity: 2000,
+      registered: 1500,
+      price: "$199-$499",
+      category: "Exhibition",
+      tags: ["Digital Signage", "Content", "Innovation"]
+    },
+    {
+      id: 106,
+      title: "Smart Home Technology Training",
+      date: "2025-07-18",
+      time: "10:00 AM - 3:00 PM",
+      location: "Online Webinar",
+      description: "Certification training for installing and configuring smart home AV solutions. Learn about the latest automation technologies and best practices.",
+      speakers: ["Tech Instructor Sarah Miller"],
+      capacity: 200,
+      registered: 180,
+      price: "$99",
+      category: "Training",
+      tags: ["Smart Home", "Certification", "Online"]
     }
   ];
 
   const eventCalendar = [
     { date: "2025-01-15", eventId: 7, title: "Smart Home Training" },
     { date: "2025-02-28", eventId: 5, title: "Product Launch" },
-    { date: "2025-03-22", eventId: 4, title: "AV Integration Summit" },
+    { date: "2025-03-22", eventId: 104, title: "AV Integration Summit" },
     { date: "2025-04-10", eventId: 103, title: "Audio Workshop" },
     { date: "2025-05-20", eventId: 102, title: "Innovation Awards" },
     { date: "2025-05-30", eventId: 9, title: "Networking Mixer" },
     { date: "2025-06-15", eventId: 101, title: "Annual Conference" },
     { date: "2025-07-08", eventId: 6, title: "AV Tech Expo" },
-    { date: "2025-08-05", eventId: 8, title: "Education Panel" }
+    { date: "2025-07-18", eventId: 106, title: "Smart Home Training" },
+    { date: "2025-08-05", eventId: 8, title: "Education Panel" },
+    { date: "2025-09-12", eventId: 105, title: "Digital Signage Expo" }
   ];
 
   const months = [
@@ -80,11 +129,7 @@ const EventsSection = () => {
   };
 
   const handleRegister = (eventId) => {
-    alert(`Registration for Event ${eventId} would open a registration form.`);
-  };
-
-  const getImagePath = (imageName) => {
-    return `${process.env.PUBLIC_URL}/image/${imageName}`;
+    alert(`Registration for Event ${eventId} - Thank you for your interest!`);
   };
 
   return (
@@ -122,21 +167,10 @@ const EventsSection = () => {
         <>
           <div className="featured-events">
             <h2>Featured Events</h2>
-            <div className="featured-grid">
+            <div className="featured-grid-no-images">
               {featuredEvents.map(event => (
-                <div key={event.id} className="featured-event-card">
-                  <div className="featured-image">
-                    <img 
-                      src={getImagePath(event.image)} 
-                      alt={event.title}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        const imageNumber = ((event.id - 1) % 26) + 1;
-                        e.target.src = `${process.env.PUBLIC_URL}/image/g${imageNumber}.jpg`;
-                      }}
-                    />
-                    <div className="event-badge">{event.category}</div>
-                  </div>
+                <div key={event.id} className="featured-event-card-no-image">
+                  <div className="event-badge-top">{event.category}</div>
                   <div className="featured-content">
                     <h3>{event.title}</h3>
                     <div className="event-info">
@@ -166,7 +200,7 @@ const EventsSection = () => {
                         <span>Price: {event.price}</span>
                       </div>
                     </div>
-                    <p className="event-description">{event.description.substring(0, 150)}...</p>
+                    <p className="event-description">{event.description}</p>
                     
                     <div className="progress-container">
                       <div className="progress-label">
@@ -223,8 +257,7 @@ const EventsSection = () => {
                       <button 
                         className="btn-calendar-details"
                         onClick={() => {
-                          const foundEvent = [...featuredEvents, ...eventCalendar]
-                            .find(e => e.id === event.eventId || e.eventId === event.eventId);
+                          const foundEvent = featuredEvents.find(e => e.id === event.eventId);
                           if (foundEvent) handleEventSelect(foundEvent);
                         }}
                       >
@@ -240,21 +273,25 @@ const EventsSection = () => {
         <div className="calendar-full-view">
           <h2>Full Event Calendar</h2>
           <div className="full-calendar">
-            {months.map((month, index) => (
-              <div key={month} className="calendar-month">
-                <h3>{month} {currentYear}</h3>
-                <div className="month-events">
-                  {eventCalendar
-                    .filter(event => new Date(event.date).getMonth() === index)
-                    .map(event => (
+            {months.map((month, index) => {
+              const monthEvents = eventCalendar.filter(
+                event => new Date(event.date).getMonth() === index
+              );
+              
+              if (monthEvents.length === 0) return null;
+              
+              return (
+                <div key={month} className="calendar-month">
+                  <h3>{month} {currentYear}</h3>
+                  <div className="month-events">
+                    {monthEvents.map(event => (
                       <div key={`${month}-${event.eventId}`} className="month-event">
                         <div className="event-day">{new Date(event.date).getDate()}</div>
                         <div className="event-title">{event.title}</div>
                         <button 
                           className="btn-quick-view"
                           onClick={() => {
-                            const foundEvent = [...featuredEvents, ...eventCalendar]
-                              .find(e => e.id === event.eventId || e.eventId === event.eventId);
+                            const foundEvent = featuredEvents.find(e => e.id === event.eventId);
                             if (foundEvent) handleEventSelect(foundEvent);
                           }}
                         >
@@ -262,9 +299,10 @@ const EventsSection = () => {
                         </button>
                       </div>
                     ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
@@ -276,15 +314,7 @@ const EventsSection = () => {
               &times;
             </button>
             
-            <div className="modal-header">
-              <img 
-                src={getImagePath(selectedEvent.image || 'g1.jpg')} 
-                alt={selectedEvent.title}
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = `${process.env.PUBLIC_URL}/image/g1.jpg`;
-                }}
-              />
+            <div className="modal-header-no-image">
               <div className="modal-title-section">
                 <h2>{selectedEvent.title}</h2>
                 <div className="modal-meta">
@@ -315,7 +345,7 @@ const EventsSection = () => {
             <div className="modal-body">
               <div className="modal-description">
                 <h3>Event Description</h3>
-                <p>{selectedEvent.description || "Join us for this exciting event featuring industry experts and cutting-edge technology."}</p>
+                <p>{selectedEvent.description}</p>
               </div>
               
               {selectedEvent.speakers && (
@@ -338,16 +368,17 @@ const EventsSection = () => {
                 <h3>Registration Information</h3>
                 <div className="registration-details">
                   <div className="detail-item">
-                    <strong>Price:</strong> {selectedEvent.price || "Free"}
+                    <strong>Price:</strong> {selectedEvent.price}
                   </div>
                   <div className="detail-item">
-                    <strong>Capacity:</strong> {selectedEvent.capacity || "Unlimited"} attendees
+                    <strong>Capacity:</strong> {selectedEvent.capacity} attendees
                   </div>
-                  {selectedEvent.registered && (
-                    <div className="detail-item">
-                      <strong>Registered:</strong> {selectedEvent.registered} attendees
-                    </div>
-                  )}
+                  <div className="detail-item">
+                    <strong>Registered:</strong> {selectedEvent.registered} attendees
+                  </div>
+                  <div className="detail-item">
+                    <strong>Available Spots:</strong> {selectedEvent.capacity - selectedEvent.registered} remaining
+                  </div>
                 </div>
                 
                 <div className="modal-actions">
@@ -359,13 +390,16 @@ const EventsSection = () => {
                   </button>
                   <button 
                     className="btn-add-calendar"
-                    onClick={() => alert('Added to calendar!')}
+                    onClick={() => alert('Event added to your calendar!')}
                   >
                     Add to Calendar
                   </button>
                   <button 
                     className="btn-share"
-                    onClick={() => alert('Share event link copied to clipboard!')}
+                    onClick={() => {
+                      navigator.clipboard.writeText(window.location.href);
+                      alert('Event link copied to clipboard!');
+                    }}
                   >
                     Share Event
                   </button>
@@ -380,7 +414,9 @@ const EventsSection = () => {
         <div className="footer-section">
           <h3>Host Your Event With Us</h3>
           <p>Interested in hosting an AV TECH event? Contact our events team for partnerships and sponsorships.</p>
-          <button className="btn-contact">Contact Events Team</button>
+          <button className="btn-contact" onClick={() => alert('Events team will contact you soon!')}>
+            Contact Events Team
+          </button>
         </div>
         
         <div className="footer-section">
@@ -388,7 +424,12 @@ const EventsSection = () => {
           <p>Get notified about upcoming events, early bird discounts, and special announcements.</p>
           <div className="subscribe-form">
             <input type="email" placeholder="Your email address" />
-            <button className="btn-subscribe">Subscribe</button>
+            <button 
+              className="btn-subscribe"
+              onClick={() => alert('Successfully subscribed to event updates!')}
+            >
+              Subscribe
+            </button>
           </div>
         </div>
       </div>
