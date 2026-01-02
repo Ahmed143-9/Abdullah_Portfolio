@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,14 +26,27 @@ const Navbar = () => {
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
-    const targetId = href.substring(1);
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) {
-      window.scrollTo({
-        top: targetSection.offsetTop - 80,
-        behavior: 'smooth'
-      });
-      closeMobileMenu();
+    // If we're on home page
+    if (location.pathname === '/') {
+      const targetId = href.substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        closeMobileMenu();
+      }
+    } else {
+      // If we're on another page, navigate to home with hash
+      navigate(`/${href}`);
+    }
+  };
+
+  const handleLogoClick = (e) => {
+    if (location.pathname !== '/') {
+      e.preventDefault();
+      navigate('/');
     }
   };
 
@@ -53,8 +69,10 @@ const Navbar = () => {
           <div className="logo-stars">★★★★★</div>
           <div className="logo-content">
             <div className="logo-names">
-              <span className="logo-trump">KAZI'S</span>
-              <span className="logo-vance">VANCE</span>
+              <Link to="/" className="logo-link" onClick={handleLogoClick}>
+                <span className="logo-trump">KAZI'S</span>
+                <span className="logo-vance">VANCE</span>
+              </Link>
             </div>
             <div className="logo-tagline"> AV TECH PERFORMANCE GREAT!</div>
           </div>
@@ -63,28 +81,106 @@ const Navbar = () => {
         </div>
         
         <div className="nav-links">
-          <a href="#platform" className="nav-link" onClick={(e) => scrollToSection(e, '#platform')}>PLATFORM</a>
-          <a href="#news" className="nav-link" onClick={(e) => scrollToSection(e, '#news')}>NEWS</a>
-          <a href="#gallery" className="nav-link" onClick={(e) => scrollToSection(e, '#gallery')}>GALLERY</a>
-          <a href="#events" className="nav-link" onClick={(e) => scrollToSection(e, '#events')}>EVENTS</a>
-          <a href="#get-involved" className="nav-link" onClick={(e) => scrollToSection(e, '#get-involved')}>GET INVOLVED</a>
+          <a 
+            href="#platform" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#platform')}
+          >
+            PLATFORM
+          </a>
+          <a 
+            href="#news" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#news')}
+          >
+            NEWS
+          </a>
+          <a 
+            href="#gallery" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#gallery')}
+          >
+            GALLERY
+          </a>
+          <a 
+            href="#events" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#events')}
+          >
+            EVENTS
+          </a>
+          <Link to="/get-involved" className="nav-link">GET INVOLVED</Link>
         </div>
         
         <div className="nav-actions">
-          <a href="#donation" className="btn-nav btn-contribute" onClick={(e) => scrollToSection(e, '#donation')}>DONATION</a>
-          <a href="#shop" className="btn-nav btn-shop-nav" onClick={(e) => scrollToSection(e, '#shop')}>SHOP</a>
+          <a 
+            href="#donation" 
+            className="btn-nav btn-contribute" 
+            onClick={(e) => scrollToSection(e, '#donation')}
+          >
+            DONATION
+          </a>
+          <a 
+            href="#shop" 
+            className="btn-nav btn-shop-nav" 
+            onClick={(e) => scrollToSection(e, '#shop')}
+          >
+            SHOP
+          </a>
         </div>
       </div>
       
       <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-links">
-          <a href="#platform" className="nav-link" onClick={(e) => scrollToSection(e, '#platform')}>PLATFORM</a>
-          <a href="#news" className="nav-link" onClick={(e) => scrollToSection(e, '#news')}>NEWS</a>
-          <a href="#gallery" className="nav-link" onClick={(e) => scrollToSection(e, '#gallery')}>GALLERY</a>
-          <a href="#events" className="nav-link" onClick={(e) => scrollToSection(e, '#events')}>EVENTS</a>
-          <a href="#get-involved" className="nav-link" onClick={(e) => scrollToSection(e, '#get-involved')}>GET INVOLVED</a>
-          <a href="#donation" className="btn-nav btn-contribute" onClick={(e) => scrollToSection(e, '#donation')}>DONATION</a>
-          <a href="#shop" className="btn-nav btn-shop-nav" onClick={(e) => scrollToSection(e, '#shop')}>SHOP</a>
+          <a 
+            href="#platform" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#platform')}
+          >
+            PLATFORM
+          </a>
+          <a 
+            href="#news" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#news')}
+          >
+            NEWS
+          </a>
+          <a 
+            href="#gallery" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#gallery')}
+          >
+            GALLERY
+          </a>
+          <a 
+            href="#events" 
+            className="nav-link" 
+            onClick={(e) => scrollToSection(e, '#events')}
+          >
+            EVENTS
+          </a>
+          <Link 
+            to="/get-involved" 
+            className="nav-link" 
+            onClick={closeMobileMenu}
+          >
+            GET INVOLVED
+          </Link>
+          <a 
+            href="#donation" 
+            className="btn-nav btn-contribute" 
+            onClick={(e) => scrollToSection(e, '#donation')}
+          >
+            DONATION
+          </a>
+          <a 
+            href="#shop" 
+            className="btn-nav btn-shop-nav" 
+            onClick={(e) => scrollToSection(e, '#shop')}
+          >
+            SHOP
+          </a>
         </div>
       </div>
     </nav>

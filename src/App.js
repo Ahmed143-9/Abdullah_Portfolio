@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom'; // BrowserRouter সরিয়ে ফেলুন
 import './VanceStyles.css';
 
 // Import components
@@ -14,8 +15,10 @@ import JoinSection from './components/JoinSection';
 import DonationSection from './components/DonationSection';
 import Footer from './components/Footer';
 import Popup from './components/Popup';
+import GetInvolvedPage from './pages/GetInvolvedPage';
 
-function App() {
+// HomePage component
+function HomePage() {
   const [showChristmasPopup, setShowChristmasPopup] = useState(false);
   const [showContributePopup, setShowContributePopup] = useState(false);
   
@@ -55,7 +58,7 @@ function App() {
   };
   
   return (
-    <div className="App">
+    <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       
       {/* Top Banner */}
@@ -101,8 +104,28 @@ function App() {
         description="Contribute Today:"
         isContribute={true}
       />
-    </div>
+    </>
   );
 }
 
-export default App;
+// Main App component
+function App() {
+  const location = useLocation();
+  
+  // Check if we're on GetInvolvedPage to show different layout
+  if (location.pathname === '/get-involved') {
+    return <GetInvolvedPage />;
+  }
+  
+  return <HomePage />;
+}
+
+// Export the main App wrapped with Routes
+export default function AppWrapper() {
+  return (
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/get-involved" element={<GetInvolvedPage />} />
+    </Routes>
+  );
+}

@@ -245,7 +245,7 @@ const GallerySection = () => {
         </div>
       )}
 
-      <div className="gallery-footer">
+      {/* <div className="gallery-footer">
         <p>Showing {displayedImages.length} of {filteredImages.length} images in "{categories.find(c => c.id === filter)?.name}" category</p>
         <button className="btn-reset-filter" onClick={() => {
           setFilter('all');
@@ -253,7 +253,7 @@ const GallerySection = () => {
         }}>
           Reset Filter
         </button>
-      </div>
+      </div> */}
     </section>
   );
 };
