@@ -1,0 +1,271 @@
+/* Footer.css */
+.main-footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #ffffff;
+  padding-top: 60px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  color: #C41E3A;
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background: #C41E3A;
+}
+
+.footer-logo h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.logo-tagline {
+  color: #C41E3A;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.about-description {
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.contact-item svg {
+  color: #C41E3A;
+  flex-shrink: 0;
+}
+
+.quick-links .links-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.link-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-column a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.link-column a:hover {
+  color: #C41E3A;
+  padding-left: 5px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(196, 30, 58, 0.2);
+  transform: translateX(5px);
+}
+
+.social-link.facebook {
+  border-left: 4px solid #1877F2;
+}
+
+.social-link.linkedin {
+  border-left: 4px solid #0077B5;
+}
+
+.social-link.youtube {
+  border-left: 4px solid #FF0000;
+}
+
+.social-link.twitter {
+  border-left: 4px solid #1DA1F2;
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+.newsletter-subscribe h4 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.newsletter-subscribe p {
+  color: #cccccc;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 10px;
+}
+
+.subscribe-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input::placeholder {
+  color: #888;
+}
+
+.subscribe-form input:focus {
+  outline: none;
+  border-color: #C41E3A;
+}
+
+.subscribe-form button {
+  padding: 12px 25px;
+  background: #C41E3A;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background: #a81832;
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 25px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.copyright p {
+  color: #888;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-links-bottom {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-links-bottom a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links-bottom a:hover {
+  color: #C41E3A;
+}
+
+.footer-disclaimer {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-disclaimer p {
+  color: #888;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .quick-links .links-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-links-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .subscribe-form {
+    flex-direction: column;
+  }
+  
+  .social-link {
+    padding: 10px 15px;
+  }
+}

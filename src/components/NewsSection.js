@@ -2,78 +2,63 @@ const NewsSection = () => {
   const newsItems = [
     {
       id: 1,
-      title: "Lorem ipsum dolor sit, amet consectetur adipisicing.",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. In sapiente quaerat corrupti ipsam ab blanditiis recusandae pariatur provident eligendi, explicabo repellat accusantium neque veniam nesciunt, esse modi quae nam tenetur ducimus asperiores ipsa! Beatae iste ab quia nesciunt. Numquam quasi dolorum perferendis aperiam non. Temporibus?"
+      title: "AV TECH Launches New Enterprise Communication Solutions",
+      content: "We are excited to announce the launch of our latest enterprise communication platform, designed to revolutionize how businesses connect and collaborate. This innovative solution integrates seamlessly with existing infrastructure while providing cutting-edge features for modern workplaces."
     },
     {
       id: 2,
-      title: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, dolore?",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab officia soluta laboriosam necessitatibus sequi officiis? Fuga eveniet earum aspernatur optio. Quo, odit adipisci mollitia sapiente sit velit debitis aliquid! Asperiores inventore eligendi dolorum est qui. Consequuntur mollitia delectus sunt eos? Reiciendis molestiae excepturi odit fugiat?"
+      title: "Record-Breaking Year for AV Technology Implementations",
+      content: "AV TECH celebrates a milestone year with over 500 successful installations across various industries. Our commitment to excellence and client satisfaction has positioned us as a leading provider of audiovisual solutions in the region."
     },
     {
       id: 3,
-      title: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo, ab!",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque libero, doloribus autem ratione hic quisquam maiores fugit reiciendis magni, quasi repellat blanditiis tempora consectetur nesciunt voluptates. Repellendus hic dolore reiciendis."
+      title: "Strategic Partnership with Leading Technology Providers",
+      content: "We are proud to announce strategic partnerships with industry-leading technology manufacturers. These collaborations enable us to offer our clients the most advanced and reliable AV solutions available in the market today."
     },
     {
       id: 4,
-      title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, quibusdam.",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor soluta deserunt vitae placeat eligendi, explicabo dolores enim quia cum fuga atque iusto velit sint nesciunt itaque dignissimos nisi dolorem quos!"
+      title: "AV TECH Recognized for Innovation Excellence",
+      content: "Our team has been honored with the Innovation Excellence Award for outstanding contributions to the audiovisual industry. This recognition reflects our dedication to pushing boundaries and delivering exceptional results for our clients."
     },
     {
       id: 5,
-      title: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, quam?",
-      content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi eos numquam minus repellendus aliquam, nam recusandae dignissimos obcaecati velit, dolore commodi quod, pariatur explicabo placeat."
+      title: "Expansion of Professional Training Programs",
+      content: "We are expanding our professional training initiatives to help businesses maximize their AV technology investments. Our comprehensive training programs cover everything from basic operations to advanced system management."
     },
     {
       id: 6,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, necessitatibus?",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente repellat dicta, vitae officia amet quia architecto consequatur rem iure et quo facilis ab asperiores voluptatibus doloribus? Ea obcaecati hic quod molestiae veniam quae, earum adipisci rerum id nostrum, est corrupti provident, illum quidem vel. A."
+      title: "New Smart Conference Room Solutions Unveiled",
+      content: "Introducing our latest smart conference room solutions featuring AI-powered automation, advanced video conferencing capabilities, and intuitive control systems. These solutions are designed to enhance meeting productivity and collaboration."
     },
     {
       id: 7,
-      title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos ab delectus tempora!",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eveniet neque molestias eaque earum eligendi explicabo dolorem non nesciunt, culpa esse autem ducimus itaque nam, placeat sed? Aperiam dignissimos odio itaque totam iusto et praesentium!"
+      title: "AV TECH Supports Educational Institutions with Technology Grants",
+      content: "As part of our community commitment, we are providing technology grants to educational institutions. This initiative aims to bridge the digital divide and ensure students have access to modern learning environments."
     },
     {
       id: 8,
-      title: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, sequi.",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo minus totam incidunt eaque porro fugit repellat dolorum fugiat provident dignissimos. Facere rerum velit quam quidem quibusdam id labore reiciendis minus veniam repudiandae libero, expedita laudantium odit veritatis, voluptatem omnis voluptatum?"
+      title: "Industry-Leading Warranty and Support Programs Introduced",
+      content: "We are launching comprehensive warranty and support programs that set new industry standards. Our clients can now enjoy extended coverage and 24/7 technical support for complete peace of mind."
     },
     {
       id: 9,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, praesentium!",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor placeat fugit, quo nesciunt consectetur veniam rerum quisquam? Sapiente esse praesentium nihil, expedita velit impedit corrupti accusamus iusto ut perferendis alias dignissimos magni voluptatibus nulla harum porro officiis. Magnam, officia reiciendis."
+      title: "Sustainable AV Solutions for Eco-Conscious Businesses",
+      content: "AV TECH introduces a new line of energy-efficient and sustainable AV solutions. We are committed to helping businesses reduce their environmental footprint while maintaining superior performance and reliability."
     },
     {
       id: 10,
-      title: "President Trump's Plan to Protect Children from Left-Wing Gender Insanity",
-      content: "President Trump today announced his plan to stop the chemical, physical, and emotional mutilation of our youth."
+      title: "Client Success Stories: Transforming Corporate Communications",
+      content: "Discover how leading corporations have transformed their communication strategies with AV TECH solutions. Our case studies showcase real-world results and the measurable impact of professional AV implementations."
     },
     {
       id: 11,
-      title: "President Trump's Plan to Save American Education and Give Power Back to Parents",
-      content: "Our public schools have been taken over by the Radical Left Maniacs!"
+      title: "Advanced Integration Services Now Available",
+      content: "Our new advanced integration services seamlessly connect all your AV systems for unified control and management. Experience the convenience of operating multiple technologies through a single, intuitive interface."
     },
     {
       id: 12,
-      title: "We Must Protect Medicare and Social Security",
-      content: "Under no circumstances should Republicans vote to cut a single penny from Medicare or Social Security"
-    },
-    {
-      id: 13,
-      title: "President Trump Will Stop China From Owning America",
-      content: "I will ensure America's future remains firmly in America's hands!"
-    },
-    {
-      id: 14,
-      title: "President Donald J. Trump Calls for Probe into Intelligence Community's Role in Online Censorship",
-      content: "The 'Twitter Files' prove that we urgently need my plan to dismantle the illegal censorship regime — a regime like nobody's ever seen in the history of our country or most other countries for that matter,\" President Trump said."
-    },
-    {
-      id: 15,
-      title: "President Donald J. Trump — Free Speech Policy Initiative",
-      content: "President Donald J. Trump announced a new policy initiative aimed to dismantle the censorship cartel and restore free speech."
+      title: "AV TECH Invests in Research and Development",
+      content: "We are significantly increasing our investment in research and development to stay at the forefront of AV technology innovation. This commitment ensures our clients always have access to the latest and most effective solutions."
     }
   ];
 
@@ -84,8 +69,8 @@ const NewsSection = () => {
           <h3>{item.title}</h3>
           <p>{item.content}</p>
           <div className="social-share">
-            <a href="#" className="social-icon">Facebook</a>
-            <a href="#" className="social-icon">Twitter</a>
+            <a href="#facebook" className="social-icon">Facebook</a>
+            <a href="#twitter" className="social-icon">Twitter</a>
           </div>
         </article>
       ))}

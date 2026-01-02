@@ -99,7 +99,7 @@ body {
 }
 
 .main-nav.scrolled {
-    background-color: rgba(0, 0, 0, 0.95);
+    
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #C41E3A;
 }

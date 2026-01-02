@@ -4,6 +4,7 @@ import './GallerySection.css';
 const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [filter, setFilter] = useState('all');
+  const [showAllImages, setShowAllImages] = useState(false); // New state for show all
 
   // All 50 gallery images
   const galleryImages = [
@@ -75,6 +76,9 @@ const GallerySection = () => {
     ? galleryImages 
     : galleryImages.filter(img => img.category === filter);
 
+  // Show only 4 images initially, or all if showAllImages is true
+  const displayedImages = showAllImages ? filteredImages : filteredImages.slice(0, 4);
+
   const getImagePath = (imageName) => {
     try {
       return require(`../image/${imageName}`);
@@ -106,6 +110,26 @@ const GallerySection = () => {
     setSelectedImage(filteredImages[newIndex]);
   };
 
+  const handleViewMore = () => {
+    setShowAllImages(true);
+    // Smooth scroll to gallery section after expanding
+    setTimeout(() => {
+      const gallerySection = document.getElementById('gallery');
+      if (gallerySection) {
+        gallerySection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleViewLess = () => {
+    setShowAllImages(false);
+    // Scroll back to top of gallery
+    const gallerySection = document.getElementById('gallery');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="gallery" className="gallery-section">
       <div className="gallery-header">
@@ -120,7 +144,10 @@ const GallerySection = () => {
             <button
               key={cat.id}
               className={`filter-button ${filter === cat.id ? 'active' : ''}`}
-              onClick={() => setFilter(cat.id)}
+              onClick={() => {
+                setFilter(cat.id);
+                setShowAllImages(false); // Reset to show only 4 when filter changes
+              }}
             >
               {cat.name}
             </button>
@@ -129,7 +156,7 @@ const GallerySection = () => {
       </div>
 
       <div className="gallery-grid">
-        {filteredImages.map(item => (
+        {displayedImages.map(item => (
           <div 
             key={item.id} 
             className="gallery-item"
@@ -160,6 +187,21 @@ const GallerySection = () => {
       {filteredImages.length === 0 && (
         <div className="no-results">
           <p>No images found in this category.</p>
+        </div>
+      )}
+
+      {/* Show View More/View Less buttons */}
+      {filteredImages.length > 4 && (
+        <div className="view-toggle-buttons">
+          {!showAllImages ? (
+            <button className="btn-view-more" onClick={handleViewMore}>
+              View More
+            </button>
+          ) : (
+            <button className="btn-view-less" onClick={handleViewLess}>
+              View Less
+            </button>
+          )}
         </div>
       )}
 
@@ -204,9 +246,12 @@ const GallerySection = () => {
       )}
 
       <div className="gallery-footer">
-        <p>Showing {filteredImages.length} of {galleryImages.length} images</p>
-        <button className="btn-view-all" onClick={() => setFilter('all')}>
-          View All Images
+        <p>Showing {displayedImages.length} of {filteredImages.length} images in "{categories.find(c => c.id === filter)?.name}" category</p>
+        <button className="btn-reset-filter" onClick={() => {
+          setFilter('all');
+          setShowAllImages(false);
+        }}>
+          Reset Filter
         </button>
       </div>
     </section>
